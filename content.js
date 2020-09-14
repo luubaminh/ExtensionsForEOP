@@ -7,7 +7,6 @@ var timeWait = 30000;
 function vocabulary() {
     var clickAudio = document.getElementsByClassName('fa-play-circle');
     var i;
-
     async function load() {
         for (i = 0; i < clickAudio.length; i++) {
             clickAudio[i].click();
@@ -19,9 +18,7 @@ function vocabulary() {
         setTimeout(function () {
             window.location.reload();
         }, 5000);
-
     }
-
     load();
 }
 
