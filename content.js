@@ -3,12 +3,8 @@ function timer(ms) {
     return new Promise(res => setTimeout(res, ms));
 }
 var task = document.getElementById('dtasktitle').innerHTML;
-//var vocabulary = Number(task.indexOf('vocabulary'));
-
 var timeWait = 30000;
-if (task.indexOf('vocabulary') != -1) {
-
-    //class audio : fa fa-play-circle daudio
+function vocabulary() {
     var clickAudio = document.getElementsByClassName('fa-play-circle');
     var i;
 
@@ -27,7 +23,9 @@ if (task.indexOf('vocabulary') != -1) {
     }
 
     load();
-} else if (task.indexOf('mcq') != -1) {
+}
+
+function mcq() {
     var click = document.getElementsByClassName('dtitle');
     async function load() {
         for (i = 0; i < click.length; i++) {
@@ -41,8 +39,13 @@ if (task.indexOf('vocabulary') != -1) {
     setTimeout(function () {
         window.location.reload();
     }, 5000 * click.length);
-} else {
-    //document.getElementsByClassName('aud-btn play')[0].click();
+}
+
+if (task.indexOf('vocabulary') != -1) {
+    vocabulary();
+} else if (task.indexOf('mcq') != -1) {
+    mcq();
+} else if (task.indexOf('Listen') != -1 && task.indexOf('question') != -1) {
     var checkAudio = false;
     var audio = document.getElementsByClassName('play');
     var writeAns = document.getElementsByClassName('danw dinline');
@@ -93,53 +96,81 @@ if (task.indexOf('vocabulary') != -1) {
 
     } else if (writeAns != null) {
         //1
-        setTimeout(function () {}, timeWait);
+        var writeAns = document.getElementsByClassName('danw dinline');
+        //setTimeout(function () { }, 30000);
         var answer = [];
-        var x = document.getElementsByClassName("danw dinline");
         var i;
-        setTimeout(function () {
-            for (i = 0; i < x.length; i++) {
-                x[i].value = "Lưu Bá Minh";
-            }
-        }, timeWait + 2000);
-
+        for (i = 0; i < writeAns.length; i++) {
+            writeAns[i].value = "Lưu Bá Minh";
+        }
         setTimeout(function () {
             document.getElementsByClassName("btn-info")[1].click();
-        }, timeWait + 3000);
-
+        }, 33000);
         //2
         setTimeout(function () {
             document.getElementsByClassName("btn-danger")[0].click();
-        }, timeWait + 6000);
-
-
+        }, 36000);
         setTimeout(function () {
-            for (i = 0; i < x.length; i++) {
-                answer[i] = x[i].value;
+            for (i = 0; i < writeAns.length; i++) {
+                answer[i] = writeAns[i].value;
             }
-        }, timeWait + 9000);
-
-
+        }, 39000);
         //3
         setTimeout(function () {
             var lamLai = document.getElementsByClassName("btn-primary");
             if (lamLai) lamLai[0].click();
-        }, timeWait + 10000);
+        }, 40000);
 
         setTimeout(function () {
-            for (i = 0; i < x.length; i++) {
-                x[i].value = answer[i];
+            for (i = 0; i < writeAns.length; i++) {
+                writeAns[i].value = answer[i];
             }
-        }, timeWait + 13000);
-
+        }, 43000);
         //4
         setTimeout(function () {
             document.getElementsByClassName("btn-info")[1].click();
-        }, timeWait + 15000);
-
-
+        }, 45000);
         setTimeout(function () {
             window.location.reload();
-        }, timeWait + 18000);
+        }, 48000);
     }
-} 
+} else {
+    setTimeout(function () { }, 30000);
+    var answer = [];
+    var i;
+    setTimeout(function () {
+        for (i = 0; i < writeAns.length; i++) {
+            writeAns[i].value = "Lưu Bá Minh";
+        }
+    }, 32000);
+    setTimeout(function () {
+        document.getElementsByClassName("btn-info")[1].click();
+    }, 33000);
+    //2
+    setTimeout(function () {
+        document.getElementsByClassName("btn-danger")[0].click();
+    }, 36000);
+    setTimeout(function () {
+        for (i = 0; i < writeAns.length; i++) {
+            answer[i] = writeAns[i].value;
+        }
+    }, 39000);
+    //3
+    setTimeout(function () {
+        var lamLai = document.getElementsByClassName("btn-primary");
+        if (lamLai) lamLai[0].click();
+    }, 40000);
+
+    setTimeout(function () {
+        for (i = 0; i < writeAns.length; i++) {
+            writeAns[i].value = answer[i];
+        }
+    }, 43000);
+    //4
+    setTimeout(function () {
+        document.getElementsByClassName("btn-info")[1].click();
+    }, 45000);
+    setTimeout(function () {
+        window.location.reload();
+    }, 48000);
+}
