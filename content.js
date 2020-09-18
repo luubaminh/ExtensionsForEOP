@@ -3,7 +3,7 @@ function timer(ms) {
 }
 //var task = document.getElementById('dtasktitle').innerHTML;
 
-var timeWait = 6 * 60000;
+var timeWait = 30000;
 
 function vocabulary() {
     var clickAudio = document.getElementsByClassName('fa-play-circle');
